@@ -1,0 +1,12 @@
+How to run virt-SMT.
+
+1, close interference applications such as mdm (KDE), lightdm (GNOME), etc.
+2, use "virt-SMT/scripts/vPair" instead of `virsh vcpupin` to set vCPU's affinity.
+3, pin vcpus from different VMs to different hardware threads of the same physical core.
+4, virt-SMT must be ran with root permission.
+
+virt-SMT has four components, namely xHalt, xPause, xPair and xFair. xHalt, xFair and xPause are running
+in the kernel of host OS, and xPair is running in the user space of host OS.
+
+virt-SMT/kernel: the source codes of xHalt, xPause, xFair.
+virt-SMT/src: the source codes of xPair.

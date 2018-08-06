@@ -1,0 +1,22 @@
+virt-SMT
+========
+
+virt-SMT kernel part includes xHalt, xPause and xFair. They completely solve frequent
+context switch overhead in virtualized systems.
+
+HOWTO
+=====
+
+$ cd linux
+$ patch -p1 < ./virt-SMT.patch
+$ compile kernel and install
+
+start virt-SMT: 
+
+$ virt-SMT/scripts/enable_halt_mwait.sh
+
+start xPause:
+
+$ virt-SMT/scripts/set_spinlock_sleeptime.sh 100000
+
+$ virt-SMT/scripts/enable_pause_mwait.sh
